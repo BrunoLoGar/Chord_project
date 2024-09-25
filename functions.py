@@ -12,10 +12,7 @@ def show(kind):
 
 #Input example do_scale('B','Phrygian')
 #Output example ['B', 'C', 'D', 'E', 'F#', 'G', 'A']
-def form_scale(note,scale):    
-    #notes=root()[0]
-    #scales=root()[1]
-
+def form_scale(note,scale): 
     result=[note,]
 
     for j in [(x+notes[note][0])%12 for x in scales[scale]]:
@@ -28,8 +25,6 @@ def form_scale(note,scale):
 #input example ('A','mayor')
 #output example ('A', 'C#', 'E')
 def form_chord(note,chord):
-    #notes=root()[0]
-    #chords=root()[2]
     result=[]
 
     for j in [(x+notes[note][0])%12 for x in chords[chord]]:
@@ -56,12 +51,7 @@ def belong_scale(notes_list,first_note_on_scale='',desired_scale=''):
 
     if len(summ)>0:
         notes_list=summ
-
-    #if first_note_on_scale not in notes_list and first_note_on_scale!='':
-    #    return print('First note should be in the notes list')
-        
-    #notes=root()[0]
-    #scales=root()[1]
+    
     if first_note_on_scale=='':
         result=[]
         for note in list(notes.keys()):
@@ -88,8 +78,6 @@ def belong_scale(notes_list,first_note_on_scale='',desired_scale=''):
 def which_chord(notes_list,first_note='',ordered=False,exact_length=False):
     if first_note not in notes_list and first_note!='':
         return print('First note should be in the notes list')
-    #notes=root()[0]
-    #chords=root()[2]
 
     result=[]
     for note in list(notes.keys()):
@@ -145,9 +133,6 @@ def which_chord(notes_list,first_note='',ordered=False,exact_length=False):
 def chords_in_scale(scale_note,desired_scale,min_len=2,max_len=6):
     if min_len<2 or max_len>6:
         print('min length is 2 and max length is 6')
-    #notes=root()[0]
-    #scales=root()[1]
-    #chords=root()[2]
     result=[]
     for note in form_scale(scale_note,desired_scale):
         for chord in list(chords.keys()):
