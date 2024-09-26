@@ -140,3 +140,11 @@ def chords_in_scale(scale_note,desired_scale,min_len=2,max_len=6):
             if belong_scale(actual_chord,scale_note,desired_scale) and len(actual_chord)>=min_len and len(actual_chord)<=max_len:
                 result.append((note+' '+chord,actual_chord))
     return result
+
+def chord_prog(note,scale):
+    result=[]
+    sc=form_scale(note,scale)
+    for i in range(len(sc)):
+        result.append(which_chord([sc[i%len(sc)],sc[(i+2)%len(sc)],sc[(i+4)%len(sc)]],first_note=sc[i%len(sc)],ordered=True,exact_length=True))
+        
+    return result 
